@@ -1,0 +1,10 @@
+Package: desktop-layout
+Version: 0.0.1
+Section: admin
+Maintainer: Carl J Smith <BM-NBHLt5EUFVEbRCmrbVrfCyaB2c8d24U9>
+Installed-Size: 32
+Priority: optional
+Architecture: all
+Depends: python3
+Description: Changes the users desktop layout.
+ Changes the desktop layout in xfce4 to a predefined setting.
