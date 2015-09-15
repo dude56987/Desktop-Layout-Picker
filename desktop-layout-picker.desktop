@@ -2,10 +2,11 @@
 Encoding=UTF-8
 Version=1.0
 Type=Application
-Exec=xterm -T Desktop\ Layout\ Picker -e desktop-layout
+Exec=desktop-layout-picker
 Name=Desktop Layout Picker
 Comment=Changes the panel layout in xfce to a list of presets
 Categories=XFCE;Settings;X-XFCE-SystemSettings;
 OnlyShowIn=XFCE;
 GenericName=Desktop Layout Picker
 Icon=xfce4-panel
+Terminal=true
