@@ -41,6 +41,9 @@ for item in os.listdir("/opt/hackbox/preconfiguredSettings/userSettings/"):
 			choices.append((item,'',0))
 if len(choices)>1:
 	userChoice=root.radiolist('Which desktop enviorment layout would you like to be the default?',20,60,15,choices)
+	if userChoice[0] == 'cancel':
+		print('Not changing anything and closing program...')
+		exit()
 	# returns a 2 value tuple, grab value # 1
 	userChoice=("/opt/hackbox/preconfiguredSettings/userSettings/"+userChoice[1])
 	# add to the config file
