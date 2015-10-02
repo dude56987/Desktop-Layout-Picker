@@ -62,8 +62,8 @@ print('rm -v ~/.config/xfce4/xfce4-panel.xml')
 system('rm -v ~/.config/xfce4/xfce4-panel.xml')
 # install user picked settings package into the current users home directory
 if len(desktopLine) > 1:
-	print("cp -rvf "+desktopLine+"/.* ~/")
-	system("cp -rvf "+desktopLine+"/.* ~/")
+	print("cp -rvf "+desktopLine+"/. ~/")
+	system("cp -rvf "+desktopLine+"/. ~/")
 # if xfce4-panel has been closed successfully relaunch it
 while (('xfce4-panel' in popen('ps -e').read()) != True):
 	# start the xfce4 panel to show new settings
