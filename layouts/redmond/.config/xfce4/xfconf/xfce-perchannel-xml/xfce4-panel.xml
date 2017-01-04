@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="2"/>
+    <property name="panel-2" type="empty">
+      <property name="position" type="string" value="p=8;x=51;y=920"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="disable-struts" type="bool" value="false"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="background-style" type="uint" value="1"/>
+      <property name="background-color" type="array">
+        <value type="uint" value="65535"/>
+        <value type="uint" value="65535"/>
+        <value type="uint" value="65535"/>
+        <value type="uint" value="65535"/>
+      </property>
+      <property name="background-alpha" type="uint" value="100"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="4"/>
+        <value type="int" value="25"/>
+        <value type="int" value="9"/>
+        <value type="int" value="17"/>
+        <value type="int" value="23"/>
+        <value type="int" value="7"/>
+        <value type="int" value="6"/>
+        <value type="int" value="2"/>
+        <value type="int" value="1"/>
+        <value type="int" value="5"/>
+      </property>
+      <property name="size" type="uint" value="74"/>
+      <property name="nrows" type="uint" value="1"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="enter-opacity" type="uint" value="100"/>
+      <property name="leave-opacity" type="uint" value="90"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
+      <property name="length-adjust" type="bool" value="true"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-4" type="string" value="whiskermenu"/>
+    <property name="plugin-9" type="string" value="places"/>
+    <property name="plugin-17" type="string" value="tasklist">
+      <property name="show-labels" type="bool" value="false"/>
+      <property name="flat-buttons" type="bool" value="true"/>
+      <property name="show-handle" type="bool" value="false"/>
+      <property name="show-wireframes" type="bool" value="true"/>
+      <property name="include-all-workspaces" type="bool" value="true"/>
+      <property name="show-only-minimized" type="bool" value="false"/>
+      <property name="grouping" type="uint" value="0"/>
+    </property>
+    <property name="plugin-23" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-25" type="string" value="showdesktop"/>
+    <property name="plugin-1" type="string" value="indicator">
+      <property name="known-indicators" type="array">
+        <value type="string" value="com.canonical.indicator.messages"/>
+      </property>
+    </property>
+    <property name="plugin-2" type="string" value="systray">
+      <property name="names-visible" type="array">
+        <value type="string" value="variety"/>
+        <value type="string" value="task manager"/>
+        <value type="string" value="wicd-client.py"/>
+        <value type="string" value="volumeicon"/>
+        <value type="string" value="clipit"/>
+        <value type="string" value="synapse"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="redshiftrunnergtk"/>
+      </property>
+      <property name="show-frame" type="bool" value="false"/>
+      <property name="size-max" type="uint" value="42"/>
+      <property name="names-hidden" type="array">
+      </property>
+    </property>
+    <property name="plugin-5" type="string" value="xfce4-orageclock-plugin"/>
+    <property name="plugin-6" type="string" value="cpugraph"/>
+    <property name="plugin-7" type="string" value="systemload"/>
+  </property>
+</channel>

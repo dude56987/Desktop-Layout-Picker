@@ -8,7 +8,7 @@ uninstall:
 	sudo apt-get purge desktop-layout-picker
 installed-size:
 	du -sx --exclude DEBIAN ./debian/
-build: 
+build:
 	sudo make build-deb;
 build-deb:
 	mkdir -p debian;
@@ -17,10 +17,13 @@ build-deb:
 	mkdir -p debian/usr/bin;
 	mkdir -p debian/usr/share;
 	mkdir -p debian/usr/share/desktop-layout-picker;
+	mkdir -p debian/usr/share/desktop-layout-picker/layouts;
 	mkdir -p debian/usr/share/applications;
-	# copy over the files 
+	# copy over the files
 	cp -vf desktop-layout-picker.py ./debian/usr/bin/desktop-layout-picker
-	cp -vf desktop-layout-picker.desktop ./debian/usr/share/applications/desktop-layout-picker.desktop 
+	cp -vf desktop-layout-picker.desktop ./debian/usr/share/applications/desktop-layout-picker.desktop
+	# copy over the layouts
+	cp -vfr layouts/. ./debian/usr/share/desktop-layout-picker/layouts/
 	# make the program executable
 	chmod +x ./debian/usr/bin/desktop-layout-picker
 	# Create the md5sums file
@@ -30,7 +33,7 @@ build-deb:
 	sed -i.bak 's/\\n*DEBIAN*\\n//g' ./debian/DEBIAN/md5sums
 	sed -i.bak 's/\\n*DEBIAN*//g' ./debian/DEBIAN/md5sums
 	rm -v ./debian/DEBIAN/md5sums.bak
-	# figure out the package size	
+	# figure out the package size
 	du -sx --exclude DEBIAN ./debian/ > Installed-Size.txt
 	# copy over package data
 	cp -rv debdata/. debian/DEBIAN/

@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 ########################################################################
-# Script to install custom panel layout for xfce4
-# Copyright (C) 2015  Carl J Smith
+# Script to change between custom panel layouts for xfce4
+# Copyright (C) 2016  Carl J Smith
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -30,10 +30,10 @@ root=Dialog()
 choices=[]
 config=''
 ########################################################################
-# Build the user interface 
+# Build the user interface
 ########################################################################
 # grab a list of available desktop settings for the user to pick from
-for item in listdir("/opt/hackbox/preconfiguredSettings/userSettings/"):
+for item in listdir("/usr/share/desktop-layout-picker/layouts/"):
 	# ignore core settings,hidden files, and any files that are not folders
 	if (item != "CORE") and (("." in item) != True):
 		if "default" in item:
@@ -41,12 +41,12 @@ for item in listdir("/opt/hackbox/preconfiguredSettings/userSettings/"):
 		else:
 			choices.append((item,'',0))
 if len(choices)>1:
-	userChoice=root.radiolist('Which desktop enviorment layout would you like to be the default?',20,60,15,choices)
+	userChoice=root.radiolist('Which desktop environment layout would you like to be the default?',20,60,15,choices)
 	if userChoice[0] == 'cancel':
 		print('Not changing anything and closing program...')
 		exit()
 	# returns a 2 value tuple, grab value # 1
-	userChoice=("/opt/hackbox/preconfiguredSettings/userSettings/"+userChoice[1])
+	userChoice=("/usr/share/desktop-layout-picker/layouts/"+userChoice[1])
 	# add to the config file
 	desktopLine=userChoice
 ########################################################################
