@@ -20,10 +20,9 @@ from os import system
 from os import popen
 from os import listdir
 from dialog import Dialog
+from time import sleep
 ########################################################################
 # This program changes the current users desktop layout for xfce4
-########################################################################
-# TODO #################################################################
 ########################################################################
 # create the root dialog object
 root=Dialog()
@@ -51,8 +50,10 @@ if len(choices)>1:
 	desktopLine=userChoice
 ########################################################################
 # stop xfce4-panel and kill xfconfd which stores settings in ram
-system('xfce4-panel --quit')
-system('pkill xfconfd')
+if 'xfce4-panel' in popen('ps -e').read():
+	system('xfce4-panel --quit')
+while 'xfconfd' in popen('ps -e').read():
+	system('pkill xfconfd')
 # remove users old config files
 print('rm -rv ~/.config/xfce4/panel/')
 system('rm -rv ~/.config/xfce4/panel/')
@@ -65,7 +66,11 @@ if len(desktopLine) > 1:
 	print("cp -rvf "+desktopLine+"/. ~/")
 	system("cp -rvf "+desktopLine+"/. ~/")
 # if xfce4-panel has been closed successfully relaunch it
-while (('xfce4-panel' in popen('ps -e').read()) != True):
+while ('xfce4-panel' not in popen('ps -e').read()):
 	# start the xfce4 panel to show new settings
 	print('nohup xfce4-panel > /dev/null &')
 	system('nohup xfce4-panel > /dev/null &')
+	# sleep here before checking again and running the compositor
+	sleep(0.1)
+# restart the compositor to update compositor settings and number of workspaces
+system('nohup xfwm4 --replace > /dev/null &')
